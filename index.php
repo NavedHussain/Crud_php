@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 </head>
 <body>
     <div>
-        <form action="" method+="POST">
+        <form action="" method="POST">
             <input type="text" name="firstname" placeholder="Firstname"> <br><br>
 
             <input type="text" name="lastname" placeholder="Lastname"> <br><br>
