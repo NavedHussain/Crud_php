@@ -1,13 +1,15 @@
 <?php include 'Connection.php';
 $id=$_GET['id'];
 $select="SELECT * FROM student WHERE id='$id'";
-$data=mysqli_qurey($con,$select);
-$row=mysqli_fetch_arry($data);
+$data=mysqli_query($con,$select);
+$row=mysqli_fetch_array($data);
+error_reporting(E_ALL);
 ?>
 <div>
-    <form action="" method+="POST">
-        <input value="<?php echo $row['firstname'] ?>
-        " type="text" name="firstname" placeholder="Firstname"> <br><br>
+    <form action="" method="POST">
+      <input type="text" name="firstname" placeholder="Firstname" value="
+      <?php echo htmlspecialchars($row['firstname']); ?>">
+ <br><br>
 
         <input type="text" name="lastname"
          placeholder="Lastname" value="><?php echo $row
@@ -19,7 +21,7 @@ $row=mysqli_fetch_arry($data);
 
         <input type="submit" name="update_btn"value=
         "Update">
-        <button><a href="view.php">Back</a></button>
+        <button><a href="view.php">Back</button></a>
     </form>
 </div>
 <?php

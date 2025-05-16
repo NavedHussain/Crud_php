@@ -1,4 +1,6 @@
-<?php include 'Connection.php'; ?>
+<?php include 'Connection.php';
+error_reporting(E_ALL);
+?>
 <a href="index.php">Home</a>
 
 <table border="1px" cellpadding="10px" cellspacing="0">
@@ -8,10 +10,12 @@
         <th>Age</th>
         <th colspan="2">Actions</th>
     </tr>
+
     <?php
     $query="SELECT * FROM student";
     $data= mysqli_query($con,$query);
     $result=mysqli_num_rows($data);
+    print_r($result);
     if ($result)   {
 
         while ($row=mysqli_fetch_assoc($data)) {

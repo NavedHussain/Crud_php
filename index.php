@@ -1,4 +1,5 @@
 <?php include 'Connection.php';
+error_reporting(E_ALL);
  ?>
 
 <!DOCTYPE html>
