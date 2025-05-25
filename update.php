@@ -3,7 +3,7 @@ $id=$_GET['id'];
 $select="SELECT * FROM student WHERE id='$id'";
 $data=mysqli_query($con,$select);
 $row=mysqli_fetch_array($data);
-error_reporting(E_ALL);
+// error_reporting(E_ALL);
 ?>
 <div>
     <form action="" method="POST">
@@ -12,8 +12,9 @@ error_reporting(E_ALL);
  <br><br>
 
         <input type="text" name="lastname"
-         placeholder="Lastname" value="><?php echo $row
-         ['lastname'] ?>"> <br><br>
+         placeholder="Lastname"
+         value="<?php echo htmlspecialchars($row['lastname']); ?>"
+         <br><br>
 
         <input type="number" name="age" placeholder="
         Age" value="<?php echo $row['age'] ?>">
@@ -21,7 +22,10 @@ error_reporting(E_ALL);
 
         <input type="submit" name="update_btn"value=
         "Update">
-        <button><a href="view.php">Back</button></a>
+       <!-- <button><a href="view.php"><button type="button">Back</button></a> -->
+        <button type="button" onclick="window.location.href='view.php'">Back</button>
+
+
     </form>
 </div>
 <?php
@@ -32,12 +36,13 @@ error_reporting(E_ALL);
 
         $update="UPDATE student SET firstname='$fname'
         ,lastname='$lastname',age='$age' WHERE id= '$id'";
+        echo $update; exit;
         $data=mysqli_query($con,$update);
         if($data){
             ?>
             <script type="text/javascript">
                 alert("Data Update Successfully")
-                window.open("http://localhost/cy/view.php",
+                window.open("http://localhost/Crud_php/view.php",
               "_self");
             </script>
             <?php

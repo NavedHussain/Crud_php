@@ -27,7 +27,7 @@ error_reporting(E_ALL);
             </td>
              <td><?php echo $row['age'];?></td>
               <td> <a href="update.php?id=<?php echo
-              $row['id'];?>"></a></td>
+              $row['id'];?>">Update</a></td>
 
               <td><a onclick="return confrim('Are You Sure,You Want To Delete?')"
                  href="delete.php?id=<?php echo
